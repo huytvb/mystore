@@ -1,0 +1,27 @@
+﻿.notify {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 200px;
+    border: 1px solid;
+    padding: 10px 15px;
+    font-weight: bold;
+    color: white;
+}
+
+    .notify.success {
+        background: green;
+    }
+
+    .notify.error {
+        background: red;
+    }
+
+    .notify.process {
+        background: blue;
+    }
+
+    .notify.warning {
+        background: yellow;
+        color: black;
+    }

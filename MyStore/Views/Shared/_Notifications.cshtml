@@ -1,0 +1,45 @@
+﻿@{
+    string successNotify = TempData["SuccessNotification"] != null ? TempData["SuccessNotification"].ToString() : "";
+    string errorNotify = TempData["ErrorNotification"] != null ? TempData["ErrorNotification"].ToString() : "";
+    string processNotify = TempData["ProcessingNotification"] != null ? TempData["ProcessingNotification"].ToString() : "";
+    string warningNotify = TempData["WarningNotification"] != null ? TempData["WarningNotification"].ToString() : "";
+    string time = (TempData["NotificationTime"] != null ? TempData["NotificationTime"].ToString() : "") + "000";
+}
+
+@if (!string.IsNullOrWhiteSpace(successNotify))
+{
+    //Hiển thông báo thành công
+    <div class="notify success">
+        @successNotify
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(errorNotify))
+{
+    //Hiển thông báo lỗi
+    <div class="notify error">
+        @errorNotify
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(processNotify))
+{
+    //Thông báo đang xử lý
+    <div class="notify process">
+        @processNotify
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(warningNotify))
+{
+    //Thông báo cảnh báo
+    <div class="notify warning">
+        @warningNotify
+    </div>
+}
+
+<script>
+    $(function () {
+        $(".notify").fadeIn().delay(@time).fadeOut();
+    });
+</script>
